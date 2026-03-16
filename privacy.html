@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — voii</title>
+    <meta name="description" content="voii privacy policy. No data collection, no tracking, no accounts.">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --text: #1a1a1a;
+            --muted: #6b6b6b;
+            --accent: #d4845a;
+            --border: #e5e5e5;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --text: #f0ede8;
+                --muted: #999;
+                --accent: #d4845a;
+                --border: #333;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 640px; margin: 0 auto; padding: 60px 24px; }
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .last-updated {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        p, ul { margin-bottom: 16px; font-size: 16px; }
+        ul { padding-left: 24px; }
+        li { margin-bottom: 8px; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { display: inline-block; margin-bottom: 24px; font-size: 14px; }
+        footer {
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+            padding-top: 24px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="./" class="back">&larr; Back to voii</a>
+
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: March 16, 2026</p>
+
+    <h2>Overview</h2>
+    <p>voii is a serverless peer-to-peer chat application. It is designed with privacy as a core principle. <strong>voii does not collect, store, or transmit any personal data to any server operated by us</strong> — because no such server exists.</p>
+
+    <h2>Data We Collect</h2>
+    <p><strong>None.</strong> voii has no backend server, no analytics, no crash reporting, and no tracking of any kind. We do not collect:</p>
+    <ul>
+        <li>Personal information (name, email, phone number)</li>
+        <li>Usage data or analytics</li>
+        <li>Device identifiers for tracking purposes</li>
+        <li>Location data</li>
+        <li>Advertising identifiers</li>
+    </ul>
+
+    <h2>How Messages Work</h2>
+    <p>Messages are sent directly from one device to another using Apple Push Notification service (APNs). The message flow is:</p>
+    <ul>
+        <li><strong>Sender device</strong> → <strong>Apple APNs servers</strong> → <strong>Recipient device</strong></li>
+    </ul>
+    <p>Messages pass through Apple's APNs infrastructure for delivery. We have no access to message content in transit. Once delivered, messages are stored only on the sender's and recipient's devices.</p>
+
+    <h2>Data Stored on Your Device</h2>
+    <p>voii stores the following data locally on your device:</p>
+    <ul>
+        <li><strong>Contacts:</strong> Device tokens and aliases of people you've added</li>
+        <li><strong>Messages:</strong> Text content of messages you've sent and received</li>
+        <li><strong>Groups:</strong> Group membership information</li>
+    </ul>
+    <p>This data is stored in your device's app sandbox and, if you have iCloud enabled, synced across your own Apple devices via Apple's CloudKit service. We have no access to your iCloud data.</p>
+
+    <h2>iCloud Sync</h2>
+    <p>If you have iCloud enabled on your device, voii uses Apple's CloudKit to sync your contacts and messages across your own devices. This data is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. We do not operate or have access to the CloudKit containers — Apple manages them entirely.</p>
+
+    <h2>APNs Authentication Key</h2>
+    <p>voii embeds an Apple Push Notification service signing key within the app to send push notifications directly without a backend server. This key is used solely for authenticating push notification requests to Apple's servers.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>voii uses the following Apple services:</p>
+    <ul>
+        <li><strong>Apple Push Notification service (APNs):</strong> For message delivery</li>
+        <li><strong>CloudKit (iCloud):</strong> For syncing data across your devices</li>
+    </ul>
+    <p>No other third-party services, SDKs, or analytics frameworks are used.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>voii does not knowingly collect any data from children under 13. Since we collect no data from anyone, this applies universally.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If we update this privacy policy, changes will be posted on this page with an updated date. Since voii is open source, all changes are visible in the <a href="https://github.com/rocrp/voii">public repository</a>.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this privacy policy, please open an issue on <a href="https://github.com/rocrp/voii/issues">GitHub</a> or email <a href="mailto:crysheen@gmail.com">crysheen@gmail.com</a>.</p>
+
+    <footer>
+        <p>&copy; 2025 Tian Xia. voii is <a href="https://github.com/rocrp/voii">open source</a>.</p>
+    </footer>
+</div>
+
+</body>
+</html>

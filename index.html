@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voii — Serverless Direct Chat</title>
+    <meta name="description" content="Chat without servers. voii sends messages directly between devices via Apple Push Notifications.">
+    <meta property="og:title" content="voii — Serverless Direct Chat">
+    <meta property="og:description" content="Peer-to-peer messaging via Apple Push Notifications. No accounts, no tracking, no backend.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rocrp.github.io/voii-site/">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --text: #1a1a1a;
+            --muted: #6b6b6b;
+            --accent: #d4845a;
+            --card-bg: #ffffff;
+            --border: #e5e5e5;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --text: #f0ede8;
+                --muted: #999;
+                --accent: #d4845a;
+                --card-bg: #252525;
+                --border: #333;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0 48px;
+        }
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+        .hero .subtitle {
+            font-size: 20px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+        .hero .tagline {
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 480px;
+            margin: 0 auto 32px;
+        }
+        .badge-link {
+            display: inline-block;
+        }
+        .badge-link img {
+            height: 44px;
+        }
+
+        /* How it works */
+        .section { padding: 48px 0; }
+        .section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-text { padding-top: 4px; }
+        .step-text strong { display: block; margin-bottom: 2px; }
+        .step-text span { color: var(--muted); font-size: 15px; }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 540px) {
+            .features { grid-template-columns: 1fr; }
+        }
+        .feature {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .feature-icon { font-size: 24px; margin-bottom: 8px; }
+        .feature h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .feature p { font-size: 14px; color: var(--muted); }
+
+        /* Architecture */
+        .arch-diagram {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            font-family: "SF Mono", "Fira Code", monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+            color: var(--muted);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <section class="hero">
+        <img src="icon.png" alt="voii app icon" class="hero-icon" onerror="this.style.display='none'">
+        <h1>voii</h1>
+        <p class="subtitle">Serverless Direct Chat</p>
+        <p class="tagline">Send messages directly between devices via Apple Push Notifications. No servers, no accounts, no tracking.</p>
+    </section>
+
+    <section class="section">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <strong>Share your identity</strong>
+                    <span>Generate a QR code or deep link containing your device token</span>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <strong>Send directly</strong>
+                    <span>Messages are sent via APNs HTTP/2 — authenticated with ES256 JWT, no middleman</span>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                    <strong>Receive instantly</strong>
+                    <span>Background processing via Notification Service Extension saves messages before display</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Features</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">💬</div>
+                <h3>Direct Messaging</h3>
+                <p>Send text messages instantly to any contact via push notifications</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <h3>Group Chat</h3>
+                <p>Create groups with up to 5 members with client-side fan-out delivery</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📝</div>
+                <h3>Rich Markdown</h3>
+                <p>Bold, italic, code blocks, lists, tables, checkboxes — full Markdown rendering</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📋</div>
+                <h3>Self Notes</h3>
+                <p>Send messages to yourself as quick-access notes in your Inbox</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">☁️</div>
+                <h3>iCloud Sync</h3>
+                <p>Contacts and messages sync across all your Apple devices via CloudKit</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📷</div>
+                <h3>QR Code Sharing</h3>
+                <p>Scan a QR code to instantly exchange identities and start chatting</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>No backend server, no accounts, no analytics — messages stay on your devices</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📖</div>
+                <h3>Open Source</h3>
+                <p>Full source code available on GitHub — verify everything yourself</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Architecture</h2>
+        <div class="arch-diagram">Device A                        Device B
+┌──────────┐   APNs HTTP/2    ┌──────────┐
+│ voii app │ ──────────────→  │   APNs   │ ──→ NSE → voii app
+│          │ ←──────────────  │  server  │
+└──────────┘                  └──────────┘
+     ↕ CloudKit sync               ↕
+  iCloud (nodes + messages)     iCloud</div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="https://github.com/rocrp/voii">GitHub</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://github.com/rocrp/voii/issues">Support</a>
+        </div>
+        <p>&copy; 2025 Tian Xia. voii is open source.</p>
+    </div>
+</footer>
+
+</body>
+</html>
