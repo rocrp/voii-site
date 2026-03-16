@@ -127,6 +127,35 @@
         .feature h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
         .feature p { font-size: 14px; color: var(--muted); }
 
+        /* Screenshots */
+        .screenshots-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 8px 0 16px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .screenshots-scroll::-webkit-scrollbar { display: none; }
+        .screenshot-item {
+            flex-shrink: 0;
+            scroll-snap-align: center;
+        }
+        .screenshot-item img {
+            height: 520px;
+            width: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+        }
+        @media (prefers-color-scheme: dark) {
+            .screenshot-item img {
+                box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+            }
+        }
+        @media (max-width: 540px) {
+            .screenshot-item img { height: 420px; }
+        }
+
         /* Architecture */
         .arch-diagram {
             background: var(--card-bg);
@@ -195,6 +224,24 @@
                     <strong>Receive instantly</strong>
                     <span>Background processing via Notification Service Extension saves messages before display</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Screenshots</h2>
+        <div class="screenshots-scroll">
+            <div class="screenshot-item">
+                <img src="screenshots/01_chat.png" alt="Direct chat conversation" loading="lazy">
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/03_group.png" alt="Group chat with multiple people" loading="lazy">
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/04_contacts.png" alt="Chats list with contacts and groups" loading="lazy">
+            </div>
+            <div class="screenshot-item">
+                <img src="screenshots/02_inbox.png" alt="Inbox with rich markdown notes" loading="lazy">
             </div>
         </div>
     </section>
